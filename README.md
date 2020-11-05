@@ -26,3 +26,16 @@ INSERT INTO "table" ("id", "data") VALUES (DEFAULT, '{1,2,3,4}') RETURNING "id"
 SELECT "t"."id", "t"."data" FROM "table" AS "t" WHERE "t"."id" = 1
 >>> error: got '\\', wanted '{'
 ```
+
+Output from pgcli:
+
+```
+gp-pg-issue-1773> SELECT * FROM "table"
++------+----------------------+
+| id   | data                 |
+|------+----------------------|
+| 1    | \x7b312c322c332c347d |
++------+----------------------+
+SELECT 1
+Time: 0.025s
+```
