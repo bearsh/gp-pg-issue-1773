@@ -30,5 +30,5 @@ type Table struct {
 	tableName struct{} `pg:"table,alias:t,discard_unknown_columns"`
 
 	ID   int    `pg:"id,pk"`
-	Data []byte `pg:"data,array"`
+	Data []byte `pg:"data"`
 }
